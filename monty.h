@@ -42,7 +42,7 @@ typedef struct instruction_s
 void (*myCmd(char *cmd, unsigned int ln))(stack_t **, unsigned int);
 void push(stack_t **stack, int num);
 void Pall(stack_t **stack, unsigned int line_number);
-void myPint(stack_t **stack, unsigned int ln);
+void Pint(stack_t **stack, unsigned int line_number);
 void myPop(stack_t **stack, unsigned int ln);
 void myAdd(stack_t **stack, unsigned int ln);
 void mySub(stack_t **stack, unsigned int ln);
