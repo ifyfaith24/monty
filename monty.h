@@ -43,7 +43,7 @@ void (*myCmd(char *cmd, unsigned int ln))(stack_t **, unsigned int);
 void push(stack_t **stack, int num);
 void Pall(stack_t **stack, unsigned int line_number);
 void Pint(stack_t **stack, unsigned int line_number);
-void myPop(stack_t **stack, unsigned int ln);
+void pop(stack_t **stack, unsigned int line_number);
 void myAdd(stack_t **stack, unsigned int ln);
 void mySub(stack_t **stack, unsigned int ln);
 void myDiv(stack_t **stack, unsigned int ln);
