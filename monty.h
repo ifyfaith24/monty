@@ -55,7 +55,7 @@ void usage_err(int n);
 void file_err(char *av, FILE *fp);
 void malloc_err(char *buf);
 void inst_err(unsigned int ln, char *cmd);
-void mySwap(stack_t **stack, unsigned int ln);
+void swap(stack_t **stack, unsigned int line_number);
 
 /* helper functions */
 void _push(char *cmd, stack_t **stack, unsigned int ln);
