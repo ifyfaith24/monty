@@ -1,27 +1,26 @@
 #include "monty.h"
 
 /**
- * _add - adds stack data
+ * add_func - adds stack data
  * @stack: double pointer to stack
  * @line_number: current error line
  */
-void _add(stack_t **stack, unsigned int line_number)
+void add_func(stack_t **stack, unsigned int line_number)
 {
-	stack_t *node_A, *node_B;
+	stack_t *holder;
 
-	if  (*stack == NULL || (*stack)->next == NULL)
+	if ((*stack) == NULL || (*stack)->next == NULL)
 	{
-		printf("L%d: can't add, stack too short", line_number);
+		fprintf(stderr, "L%u: can't add, stack too short\n",
+			line_number);
+		fclose(global.fd);
+		free(global.opcode);
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
-
-	node_A = (*stack);
-	node_B = node_A->next;
-	node_A->n = node_A->next->n + node_A->n;
-	node_A->next = node_B->next;
-	if (node_B->next == NULL)
-		node_A->next = NULL;
-	else
-		node_B->next->prev = node_A;
-	free(node_B);
+	holder = (*stack);
+	(*stack) = (*stack)->next;
+	(*stack)->n += (*stack)->prev->n;
+	(*stack)->prev = NULL;
+	free(holder);
 }
