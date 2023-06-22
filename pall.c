@@ -1,13 +1,20 @@
 #include "monty.h"
 
 /**
- * pall - prints all elemts in stack
- * @stack: double pointer to stack
- * @line_number: current error line
+ * pall_func - function to print all elements of stack
+ * @stack: input pointer to head of stack
+ * @line_number: line count currently reading instructions from
  */
-void pall(stack_t **stack, unsigned int line_number)
-{
-	line_number--;
 
-	print_stack(stack);
+void pall_func(stack_t **stack, unsigned int line_number)
+{
+	stack_t *mover = (*stack);
+
+	(void)line_number;
+
+	while (mover)
+	{
+		printf("%d\n", mover->n);
+		mover = mover->next;
+	}
 }
