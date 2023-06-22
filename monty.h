@@ -44,7 +44,7 @@ void push(stack_t **stack, int num);
 void Pall(stack_t **stack, unsigned int line_number);
 void Pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
-void myAdd(stack_t **stack, unsigned int ln);
+void add(stack_t **stack, unsigned int line_number);
 void mySub(stack_t **stack, unsigned int ln);
 void myDiv(stack_t **stack, unsigned int ln);
 void myMul(stack_t **stack, unsigned int ln);
