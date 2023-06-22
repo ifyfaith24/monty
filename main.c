@@ -1,6 +1,10 @@
 #include "monty.h"
 
 int data = 0;
+
+void (*get_op_func(char *opcode))(stack_t **, unsigned int);
+void del_stack(stack_t **stack);
+
 /**
  * main - entry point for stack program
  * @argc: number of arguements passed
