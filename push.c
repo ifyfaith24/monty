@@ -5,24 +5,12 @@
  * @num: value of the element to insert to the node
  * Return: nothing
  */
-void push(stack_t **stack, int num)
-{
-	stack_t *new;
 
-	new = malloc(sizeof(stack_t));
-	if (new == NULL)
+void push(stack_t **stack, unsigned int line_number)
+{
+	if (add_node(stack, data) == 1)
 	{
-		printf("Error: malloc failed\n");
+		printf("L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	new->n = num;
-	new->prev = NULL;
-	if (*stack == NULL)
-		new->next = NULL;
-	else
-	{
-		new->next = *stack;
-		(*stack)->prev = new;
-	}
-	*stack = new;
 }

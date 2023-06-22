@@ -4,9 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
-#include <ctype.h>
-#include <sys/stat.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -38,27 +35,23 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* commands */
-void (*myCmd(char *cmd, unsigned int ln))(stack_t **, unsigned int);
-void push(stack_t **stack, int num);
-void Pall(stack_t **stack, unsigned int line_number);
-void Pint(stack_t **stack, unsigned int line_number);
+/* extenal variable*/
+extern int data;
+
+/* opcodes */
+void push(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
-void add(stack_t **stack, unsigned int line_number);
-void mySub(stack_t **stack, unsigned int ln);
-void myDiv(stack_t **stack, unsigned int ln);
-void myMul(stack_t **stack, unsigned int ln);
-void myMod(stack_t **stack, unsigned int ln);
-
-/* error printing functions */
-void usage_err(int n);
-void file_err(char *av, FILE *fp);
-void malloc_err(char *buf);
-void inst_err(unsigned int ln, char *cmd);
+void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
+void _add(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
+void (*get_op_func(char *s))(stack_t **stack, unsigned int line_number);
 
-/* helper functions */
-void _push(char *cmd, stack_t **stack, unsigned int ln);
-void free_list(stack_t **stack);
+/* ll_to_stack */
+int add_node(stack_t **stack, int n);
+void del_stack(stack_t **head);
+int del_top_node(stack_t **stack);
+int print_stack(stack_t **stack);
 
 #endif
